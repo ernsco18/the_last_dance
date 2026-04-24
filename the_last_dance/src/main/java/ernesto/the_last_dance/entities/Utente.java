@@ -14,7 +14,7 @@ import java.util.UUID;
 @JsonIgnoreProperties({"password", "ruolo", "accountNonExpired", "accountNonLocked", "authorities", "credentialsNonExpired", "enabled"})
 public class Utente {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "utente_id")
     @Setter(AccessLevel.NONE)
     private UUID id;

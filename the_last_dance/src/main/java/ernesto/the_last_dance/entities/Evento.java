@@ -12,9 +12,8 @@ import java.util.UUID;
 @Data
 public class Evento {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "evento_id")
-    @Setter(AccessLevel.NONE)
     private UUID id;
 
     @Column(nullable = false)
@@ -25,10 +24,10 @@ public class Evento {
     private LocalDate data;
     @Column(nullable = false)
     private String luogo;
-    @Column(name = "posti_disponibili", nullable = false)
+    @Column(name = "posti_disponibili")
     private int postiDisponibili;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "organizzatore_id")
     private Utente organizzatore;
 

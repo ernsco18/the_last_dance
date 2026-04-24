@@ -16,7 +16,7 @@ import java.util.UUID;
 @Data
 public class Prenotazione {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "prenotazioni_id")
     @Setter(AccessLevel.NONE)
     private UUID id;
