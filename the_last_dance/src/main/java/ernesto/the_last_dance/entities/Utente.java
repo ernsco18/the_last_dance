@@ -3,8 +3,12 @@ package ernesto.the_last_dance.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -39,5 +43,9 @@ public class Utente {
         this.password = password;
         this.dataNascita = dataNascita;
         this.ruolo = ruolo;
+    }
+
+    public Collection<? extends GrantedAuthority> getAuthorities(){
+        return List.of(new SimpleGrantedAuthority(this.ruolo.name()));
     }
 }
