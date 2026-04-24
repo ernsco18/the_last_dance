@@ -1,6 +1,10 @@
 package ernesto.the_last_dance.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -31,7 +35,7 @@ public class Evento {
     @JoinColumn(name = "organizzatore_id")
     private Utente organizzatore;
 
-    public Evento( String titolo, LocalDate data, String descrizione, String luogo, Utente organizzatore, int postiDisponibili) {
+    public Evento(String titolo, LocalDate data, String descrizione, String luogo, int postiDisponibili, Utente organizzatore) {
         this.titolo = titolo;
         this.data = data;
         this.descrizione = descrizione;
