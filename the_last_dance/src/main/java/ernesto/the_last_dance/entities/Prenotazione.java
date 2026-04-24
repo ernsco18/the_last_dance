@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -22,7 +23,7 @@ public class Prenotazione {
     private UUID id;
 
     @Column(name = "data_prenotazioni", nullable = false)
-    private LocalDateTime dataPrenotazioni;
+    private LocalDate dataPrenotazioni;
 
     @ManyToOne
     @JoinColumn(name = "evento_id", nullable = false)
@@ -32,7 +33,7 @@ public class Prenotazione {
     @JoinColumn(name = "utente_id", nullable = false)
     private Utente utente;
 
-    public Prenotazione(LocalDateTime dataPrenotazioni, Evento evento, Utente utente) {
+    public Prenotazione(LocalDate dataPrenotazioni, Evento evento, Utente utente) {
         this.dataPrenotazioni = dataPrenotazioni;
         this.evento = evento;
         this.utente = utente;
